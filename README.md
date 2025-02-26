@@ -54,6 +54,8 @@ How to set up Metasploitable 2
   
 MODULE 1
   FTP: Use ftp command in Kali to connect anonymously and list directories.
+  <img width="1171" alt="FTP1" src="https://github.com/user-attachments/assets/ff642266-5032-4ac7-b1d8-f1d0b3473e69" />
+
   SMB: Use smbclient to access shared resources.
   Telnet: Use telnet to connect to remote servers.
   Rsync: Use rsync for syncing files over SSH.
