@@ -1,6 +1,6 @@
 # Cyber-Wall
 
-MACHINE & TOOL PREP
+VIRTUAL MACHINE & TOOL PREP <p>
 Before proceeding, ensure you have the following:
 
 A virtualized environment (VirtualBox, VMware), I used UTM as I own a Mac. On which you will install:
