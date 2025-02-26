@@ -7,7 +7,7 @@ A virtualized environment (VirtualBox, VMware), I used UTM as I own a Mac. On wh
   Kali Linux ISO or pre-installed Kali Linux
   A local test environment where you will have your target system (I used Metasploitable)
 
-How to set up UTM
+How to set up UTM <p>
   Download UTM from the website: https://mac.getutm.app/
   Click download and follow the instructions
   
