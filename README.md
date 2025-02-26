@@ -53,13 +53,29 @@ How to set up Metasploitable 2
   Note that the login credentials will be username: msfadmin password: msfadmin
   
 MODULE 1
-  FTP: Use ftp command in Kali to connect anonymously and list directories.
-  <img width="1171" alt="FTP1" src="https://github.com/user-attachments/assets/ff642266-5032-4ac7-b1d8-f1d0b3473e69" />
+**FTP: Use ftp command in Kali to connect anonymously and list directories**
+  Use command 'ifconfig' to identify the ip addresses on your network. You would find the ip addresses of your Kali and Metasploitable machine
+  These are mine:
+    Kali: 192.168.64.2
+    Metaploitable (Meta): 192.168.64.4
+    Nmap scan shows the results of a TCP scan on port 21. 
+      192.168.64.4: is the target IP address.
+      -v: verbose gives details
+      -sT: scan TCP
+      -SV: identify services on the port
+      -p 21: scans port 21
+      -O: shows the target's OS
+  <img width="1171" alt="FTP1" src="https://github.com/user-attachments/assets/c7efc627-5651-4069-a5d9-98e16bb4703c" />
+  <img width="1028" alt="FTP2" src="https://github.com/user-attachments/assets/321b52f1-3ff7-4371-8ddc-c0c23f6c31bb" />
+  
+  I elevated my permission to root using command 'sudo su'
+  Using the command 'ftp 192.168.64.4', you can access the Meta machine
+  <img width="559" alt="FTP3" src="https://github.com/user-attachments/assets/1d1b0bd7-c0eb-4599-84af-4bd32aa9fcaf" />
 
-  SMB: Use smbclient to access shared resources.
-  Telnet: Use telnet to connect to remote servers.
-  Rsync: Use rsync for syncing files over SSH.
-  RDP: Use a tool like rdesktop or FreeRDP to establish an anonymous RDP session.
+**SMB: Use smbclient to access shared resources**
+>>Telnet: Use telnet to connect to remote servers.
+>>Rsync: Use rsync for syncing files over SSH.
+>>RDP: Use a tool like rdesktop or FreeRDP to establish an anonymous RDP session.
   
           
           
