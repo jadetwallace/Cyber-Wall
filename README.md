@@ -14,43 +14,43 @@ How to set up UTM <p>
 How to set up Kali Linux<p>
   Download Kali Linux from the website: https://www.kali.org/ <p>
   Click Download <p>
-  Click Installer images and download the 64-bit version
+  Click Installer images and download the 64-bit version <p>
 
   Launch UTM & click on Create new virtual machine <p>
   Select Virtualise <p>
   Select Linux (OS) <p>
-  browse and select the ISO kali file, click continue <p>
-  select hardware and storage preferences <p>
+  Browse and select the ISO kali file, click continue <p>
+  Select hardware and storage preferences <p>
   Title your Kali Machine <p>
   Upon Starting the kali machine, select graphical install and answer installer questions as are appropriate to you <p>
   Please note that the installation process may take a few minutes to complete. Once finished, shut down Kali <p>
   Right click Kali and hit edit <p>
   On the left of the screen scroll down and delete the IDE Drive associated with the ISO drive <p>
-  Start the Kali machine and begin!
+  Start the Kali machine and begin! <p>
 
-How to set up Metasploitable 2
-  Download Metasploitable 2 from website: https://docs.rapid7.com/metasploit/metasploitable-2/
-  Select the link: https://information.rapid7.com/metasploitable-download.html
-  Expand the zip file and convert the .vmdk file to 
-    Open Terminal download the tool Qemu and navigate to the downloaded Metasploitable 2 folder
-    Type: brew install qemu
-          cd Downloads
-          cd Metasploitable2-Linux (whatever the name of the file is)
-          qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2
+How to set up Metasploitable 2 <p>
+  Download Metasploitable 2 from website: https://docs.rapid7.com/metasploit/metasploitable-2/ <p>
+  Select the link: https://information.rapid7.com/metasploitable-download.html <p>
+  Expand the zip file and convert the .vmdk file to <p>
+    Open Terminal download the tool Qemu and navigate to the downloaded Metasploitable 2 folder <p>
+    Type: brew install qemu <p>
+          cd Downloads <p>
+          cd Metasploitable2-Linux (whatever the name of the file is) <p>
+          qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2 <p>
           
-  Launch UTM & click on Create new virtual machine
-  Select Emulate
-  Select Other
-  Selct None for Boot Device
-  Set memory to 512, storage 10 GB
-  Click conitnue until you get to the Title page
-  Title your Metasploitable machine
-  Right click Metasploitable machine and hit edit
-  On the left of the screen, select QEmU and deselect UEFI Boot
-  Scroll down to the IDE Drive and delete it
-  Then hit New (to create a new drive), then import, and navigate to and select the qcow2 file
-  Start the Metasploitable machine, let it start up and begin!
-  Note that the login credentials will be username: msfadmin password: msfadmin
+  Launch UTM & click on Create new virtual machine <p>
+  Select Emulate <p>
+  Select Other <p>
+  Selct None for Boot Device <p>
+  Set memory to 512, storage 10 GB <p>
+  Click conitnue until you get to the Title page <p>
+  Title your Metasploitable machine <p>
+  Right click Metasploitable machine and hit edit <p>
+  On the left of the screen, select QEmU and deselect UEFI Boot <p>
+  Scroll down to the IDE Drive and delete it <p>
+  Then hit New (to create a new drive), then import, and navigate to and select the qcow2 file <p>
+  Start the Metasploitable machine, let it start up and begin! <p>
+  Note that the login credentials will be username: msfadmin password: msfadmin <p>
   
 MODULE 1
 **FTP: Use ftp command in Kali to connect anonymously and list directories**
