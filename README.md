@@ -8,24 +8,24 @@ A virtualized environment (VirtualBox, VMware), I used UTM as I own a Mac. On wh
   A local test environment where you will have your target system (I used Metasploitable)
 
 How to set up UTM <p>
-  Download UTM from the website: https://mac.getutm.app/
+  Download UTM from the website: https://mac.getutm.app/ <p>
   Click download and follow the instructions
   
-How to set up Kali Linux
-  Download Kali Linux from the website: https://www.kali.org/
-  Click Download
+How to set up Kali Linux<p>
+  Download Kali Linux from the website: https://www.kali.org/ <p>
+  Click Download <p>
   Click Installer images and download the 64-bit version
 
-  Launch UTM & click on Create new virtual maachine
-  Select Virtualise
-  Select Linux (OS)
-  browse and select the ISO kali file, click continue
-  select hardware and storage preferences
-  Title your Kali Machine
-  Upon Starting the kali machine, select graphical install and answer installer questions as are appropriate to you
-  Please note that the installation process may take a few minutes to complete. Once finished, shut down Kali
-  Right click Kali and hit edit
-  On the left of the screen scroll down and delete the IDE Drive associated with the ISO drive
+  Launch UTM & click on Create new virtual machine <p>
+  Select Virtualise <p>
+  Select Linux (OS) <p>
+  browse and select the ISO kali file, click continue <p>
+  select hardware and storage preferences <p>
+  Title your Kali Machine <p>
+  Upon Starting the kali machine, select graphical install and answer installer questions as are appropriate to you <p>
+  Please note that the installation process may take a few minutes to complete. Once finished, shut down Kali <p>
+  Right click Kali and hit edit <p>
+  On the left of the screen scroll down and delete the IDE Drive associated with the ISO drive <p>
   Start the Kali machine and begin!
 
 How to set up Metasploitable 2
