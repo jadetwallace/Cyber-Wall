@@ -100,15 +100,15 @@ MODULE 1
   <img width="1321" alt="Telnet1" src="https://github.com/user-attachments/assets/b41830fe-3d03-4df8-b20e-5470ef2b07c6" />
   Use the command 'show options' to list the various settings to be configured. Set the rhosts to your target machine's IP address and run the exploit to gain access.
   <img width="1319" alt="Telnet_final" src="https://github.com/user-attachments/assets/6f74d7bd-34ce-456e-8b3b-cded818342cd" />
-  
+<p>  
 **Rsync: Use rsync for syncing files over SSH**
-
-**RDP: Use a tool like rdesktop or FreeRDP to establish an anonymous RDP session**
-  To access the Windows machine using rdesktop: use the command: rdesktop -u [username] -p [password] [host:port]
-  If unable to gain remote access, ensure you have access by: 
-    - ping target machine
-    - ensure RDP is turned on
-    - ensure the firewall (like Windows Defender is off)
+<p> <p>
+**RDP: Use a tool like rdesktop or FreeRDP to establish an anonymous RDP session** <p>
+  To access the Windows machine using rdesktop: use the command: rdesktop -u [username] -p [password] [host:port] <p>
+  If unable to gain remote access, ensure you have access by: <p>
+    - ping target machine <p>
+    - ensure RDP is turned on <p>
+    - ensure the firewall (like Windows Defender is off) <p>
    <i> (for RDP a new Windows machine was created due to previous incompatible OS for the tool) 
 <img width="727" alt="RDP1" src="https://github.com/user-attachments/assets/d01c2f6f-330f-4a75-ac81-5ced22f1e5ba" />
 
