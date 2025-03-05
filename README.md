@@ -285,235 +285,235 @@ When you're done, exit the shell by typing:<br>
   exit<br>
 <br>
 
-**MODULE 4: Practical Application – Hack the Box (HTB)**
-How to Set Up the Environment
+**MODULE 4: Practical Application – Hack the Box (HTB)**<br>
+How to Set Up the Environment<br>
+<br>
+1. Open the machine dropdown menu:<br>
+    In the menu, select "Connect using Pwnbox". This will open a new tab for you to choose a server.<br>
+   <br>
+3. Choose a nearby server:<br>
+    To reduce lag, pick a server that is geographically closer to you. This will ensure faster connections.<br>
+   <br>
+5. Click “START PWNBOX”:<br>
+    Once you’ve selected the server, click the "START PWNBOX" button to start the virtual machine.<br>
+<br>
+4. Wait for the virtual machine to be online:<br>
+    After a few moments, your virtual machine should be up and running. When it's ready, click "OPEN DESKTOP" to open a new tab where you can interact with the virtual       machine.<br>
+<br>
+5. Spawn the target machine:<br>
+    In the dropdown menu, find and click "SPAWN MACHINE" for the specific machine you want to use (e.g., "Meow").<br>
+    Take note of the machine's IP address — you'll need this to interact with it.<br>
+<br>
+6. Open a terminal:<br>
+    Click on the green console icon (it’s at the top middle of the screen) to open a terminal window.<br>
+<br>
+7. Test the connection:<br>
+    In the terminal, type the following command to test the connection to the target machine:<br>
+      ping <target-IP><br>
+      Replace <target-IP> with the actual IP address of the machine.<br>
+   <br>
+8. Verify the connection:<br>
+    If you receive responses from the target machine (like "Reply from..."), it means you're connected and ready to start penetration testing.<br>
+<br>
+The initial assessment (Nmap scan, services found).<br>
+Steps taken to exploit vulnerabilities and gain access.<br>
+Final shell access and the flag(s) captured.<br>
+<br>
 
-1. Open the machine dropdown menu:
-    In the menu, select "Connect using Pwnbox". This will open a new tab for you to choose a server.
-   
-3. Choose a nearby server:
-    To reduce lag, pick a server that is geographically closer to you. This will ensure faster connections.
-   
-5. Click “START PWNBOX”:
-    Once you’ve selected the server, click the "START PWNBOX" button to start the virtual machine.
+Hack the Box: Meow (Telnet)<br>
+<br>
+1. Ping the machine to check connectivity:<br>
+  Open a terminal and type the following command:<br>
+<br>
+    ping 10.129.215.115<br>
+  This checks if the machine is reachable and ensures your network connection is active. If you get responses like "Reply from 10.129.215.115", the machine is online and   ready to interact with.<br>
+<br>
+2. Scan for open ports using Nmap:<br>
+  Next, perform a port scan to see which services are running on the target machine by typing:<br>
+<br>
+    sudo nmap -sV 10.129.215.115<br>
+    This command scans the machine for open ports and tries to identify the services running on those ports. Here’s what you might see:<br>
+  <img width="958" alt="HTB_telnet1" src="https://github.com/user-attachments/assets/f7aeaa39-b284-4295-8e86-95ed511f75a3" /><br>
+  In this case, port 23 (Telnet) is open, meaning we can try to access the machine through Telnet.<br>
+<br>
+3. Access the machine using Telnet:<br>
+  To connect to the machine via Telnet, use the following command:<br>
+<br>
+    telnet 10.129.215.115<br>
+   <img width="809" alt="HTB_telnet2" src="https://github.com/user-attachments/assets/b6b3b92a-0d52-45b7-a873-3714e4454ad8" /><br>
+  You will be prompted to log in. Try common usernames like administrator, admin, and root. In this example, we try the following:<br>
+  Once we try root, we gain access to the machine.<br>
+<br>
+4. Explore the files on the machine:<br>
+  Now that you have access as root, you can list the files on the system. To do this, type:<br>
+    ls<br>
+  This will show the files and directories in the current location. You should see a file, such as a flag text file.<br>
+<br>
+5. View the flag:<br>
+  To read the contents of the flag file, use the cat command:<br>
+    cat flag.txt<br>
+   <br>
+In this example, the flag text file content is:<br>
+    b40abdfe23665f766f9c61ecba8a4c19<br>
+<img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" /><br>
+This is the flag we were looking for!<br>
+<br>
+Hack the Box: Fawn (FTP)<br>
+<br>
+1. Ping the machine to check connectivity:<br>
+  First, you need to check if the target machine is reachable. Open a terminal and run the following command:<br>
+<br>
+    ping 10.129.206.86<br>
+    This command sends a signal to the target machine and waits for a response. If you receive replies like "Reply from 10.129.206.86", it means the machine is online         and you have network connectivity.<br>
+<br>
+2. Scan for open ports using Nmap:<br>
+  Now, let's scan the target machine for open ports. Type the following command to see what services are running on which ports:<br>
+<br>
+    sudo nmap -sV 10.129.206.86<br>
+    This Nmap command checks for open ports and attempts to identify the services running on them. This step helps you gather information about the target machine and        decide which service to target for exploitation.<br>
+<br>
+3. Install and use FTP to exploit the machine:<br>
+  FTP (File Transfer Protocol) is a common service that can have misconfigurations, such as allowing anonymous access.<br>
+  First, make sure FTP is installed on your system by running:<br>
+<br>
+    sudo apt-get install ftp<br>
+  Once it's installed, you can use FTP to connect to the target machine. Run this command:<br>
+<br>
+    ftp 10.129.206.86<br>
+  <img width="834" alt="HTB_ftp1" src="https://github.com/user-attachments/assets/391d77ae-de9e-4e3c-8821-97a263415cb6" /><br>
+<br>
+  Important note: Some FTP servers may have an anonymous login feature, which means you can log in without a username or password. If the server is misconfigured, you can log in using any password.<br>
+<br>
+4. List the files on the machine:<br>
+  After successfully logging in, you can list the files and directories on the target machine using the ls command:<br>
+<br>
+  This will display all the files in the current directory. You should see a file named flag.txt, which is usually the file you're after in penetration testing exercises.<br>
+<br>
+5. Download the flag file:<br>
+  Now that you've found the flag.txt file, use the get command to download it to your local machine and view it:<br>
+<br>
+    get flag.txt<br>
+   <img width="833" alt="HTB_ftp2" src="https://github.com/user-attachments/assets/f4afb235-2260-4eb9-a3f0-a3921396c6b4" /><br>
+  This command transfers the flag.txt file from the target machine to your local machine, where you can view its contents.<br>
+   <br>
+7. Additional FTP commands:<br>
+<br>
+To see a list of available commands for FTP, use the help command while in the FTP session:<br>
+    help<br>
+  If you're unsure about FTP's capabilities or need to check its options, you can run:<br>
+    ftp -?<br>
+  This will display the FTP command options and provide you with useful information for interacting with the service.<br>
+          <br>
+Hack the Box: Dancing (SMB)<br>
+<br>
+1. Check if the Target Machine is Reachable (Ping Test)<br>
+  Before attempting any actions, ensure the machine is online by sending a ping request:<br>
+    ping 10.129.172.28<br>
+   If the machine responds, you're connected and can proceed. If not, check your network settings or ensure the target is powered on.<br>
+<br>
+2. Scan for Open Ports with Nmap<br>
+  Now, let's scan the target for open ports and running services using Nmap:<br>
+    sudo nmap -sV 10.129.172.28<br>
+      sudo: Runs the command with administrator privileges.<br>
+      nmap: Network scanning tool.<br>
+      -sV: Detects service versions running on open ports.<br>
+  This scan will show which ports are open and what services are running on them.<br>
+<br>
+3. Identify Available SMB Shares<br>
+  The scan results reveal available SMB (Server Message Block) shares on the target machine. Common shares include:<br>
+    ADMIN$: A hidden administrative share.<br>
+    C$: The root of the C: drive (default administrative share).<br>
+    IPC$: Used for interprocess communication.<br>
+    WorkShares: A user-defined shared folder.<br>
+<br>
+4. Attempt to Access SMB Shares<br>
+  Now, we try to connect to the shared folders using the smbclient command:<br>
+<br>
+    smbclient \\\\10.129.172.28\\WorkShares<br>
+   <img width="831" alt="HTB_smb1" src="https://github.com/user-attachments/assets/c3bfe13e-16da-42ca-a49b-58ad3b439779" /><br>
+  Breaking down the command:<br>
+      smbclient: Tool to interact with SMB shares.<br>
+      \\\\10.129.172.28\\WorkShares: Specifies the target machine and the share name.<br>
+  If prompted for a password, try entering nothing (some misconfigured shares allow anonymous access).<br>
+<br>
+5. List Available Files and Directories<br>
+  Once inside the share, use the ls command to view its contents:<br>
+    ls<br>
+   <img width="828" alt="HTB_smb2" src="https://github.com/user-attachments/assets/173639ae-bd25-40e2-b4d1-5196220e80b6" /><br>
+  This will list all the files and folders available within WorkShares.<br>
+<br>
+6. Explore Users’ Directories (Amy and James)<br>
+  Navigate through the directories to find useful files.<br>
+  In James' directory, you'll find flag.txt—a key file for this exercise.<br>
+<br>
+7. Download the Flag File<br>
+  To retrieve flag.txt, use the get command:<br>
+    get flag.txt<br>
+  This downloads the file from the target machine to your local machine.<br>
+<br>
+8. View the Flag File Contents<br>
+  Open and read the flag file using:<br>
+    cat flag.txt<br>
+   <img width="824" alt="HTB_smb3" src="https://github.com/user-attachments/assets/b66424ae-23ac-4230-a070-75794e1583f9" /><br>
+  This will display the file's content, which is usually a proof-of-concept flag in penetration testing exercises.<br>
+<br><br>
 
-4. Wait for the virtual machine to be online:
-    After a few moments, your virtual machine should be up and running. When it's ready, click "OPEN DESKTOP" to open a new tab where you can interact with the virtual       machine.
-
-5. Spawn the target machine:
-    In the dropdown menu, find and click "SPAWN MACHINE" for the specific machine you want to use (e.g., "Meow").
-    Take note of the machine's IP address — you'll need this to interact with it.
-
-6. Open a terminal:
-    Click on the green console icon (it’s at the top middle of the screen) to open a terminal window.
-
-7. Test the connection:
-    In the terminal, type the following command to test the connection to the target machine:
-      ping <target-IP>
-      Replace <target-IP> with the actual IP address of the machine.
-   
-8. Verify the connection:
-    If you receive responses from the target machine (like "Reply from..."), it means you're connected and ready to start penetration testing.
-
-The initial assessment (Nmap scan, services found).
-Steps taken to exploit vulnerabilities and gain access.
-Final shell access and the flag(s) captured.
-
-
-Hack the Box: Meow (Telnet)
-
-1. Ping the machine to check connectivity:
-  Open a terminal and type the following command:
-
-    ping 10.129.215.115
-  This checks if the machine is reachable and ensures your network connection is active. If you get responses like "Reply from 10.129.215.115", the machine is online and   ready to interact with.
-
-2. Scan for open ports using Nmap:
-  Next, perform a port scan to see which services are running on the target machine by typing:
-
-    sudo nmap -sV 10.129.215.115
-    This command scans the machine for open ports and tries to identify the services running on those ports. Here’s what you might see:
-  <img width="958" alt="HTB_telnet1" src="https://github.com/user-attachments/assets/f7aeaa39-b284-4295-8e86-95ed511f75a3" />
-  In this case, port 23 (Telnet) is open, meaning we can try to access the machine through Telnet.
-
-3. Access the machine using Telnet:
-  To connect to the machine via Telnet, use the following command:
-
-    telnet 10.129.215.115
-   <img width="809" alt="HTB_telnet2" src="https://github.com/user-attachments/assets/b6b3b92a-0d52-45b7-a873-3714e4454ad8" />
-  You will be prompted to log in. Try common usernames like administrator, admin, and root. In this example, we try the following:
-  Once we try root, we gain access to the machine.
-
-4. Explore the files on the machine:
-  Now that you have access as root, you can list the files on the system. To do this, type:
-    ls
-  This will show the files and directories in the current location. You should see a file, such as a flag text file.
-
-5. View the flag:
-  To read the contents of the flag file, use the cat command:
-    cat flag.txt
-   
-In this example, the flag text file content is:
-    b40abdfe23665f766f9c61ecba8a4c19
-<img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" />
-This is the flag we were looking for!
-
-Hack the Box: Fawn (FTP)
-
-1. Ping the machine to check connectivity:
-  First, you need to check if the target machine is reachable. Open a terminal and run the following command:
-
-    ping 10.129.206.86
-    This command sends a signal to the target machine and waits for a response. If you receive replies like "Reply from 10.129.206.86", it means the machine is online         and you have network connectivity.
-
-2. Scan for open ports using Nmap:
-  Now, let's scan the target machine for open ports. Type the following command to see what services are running on which ports:
-
-    sudo nmap -sV 10.129.206.86
-    This Nmap command checks for open ports and attempts to identify the services running on them. This step helps you gather information about the target machine and        decide which service to target for exploitation.
-
-3. Install and use FTP to exploit the machine:
-  FTP (File Transfer Protocol) is a common service that can have misconfigurations, such as allowing anonymous access.
-  First, make sure FTP is installed on your system by running:
-
-    sudo apt-get install ftp
-  Once it's installed, you can use FTP to connect to the target machine. Run this command:
-
-    ftp 10.129.206.86
-  <img width="834" alt="HTB_ftp1" src="https://github.com/user-attachments/assets/391d77ae-de9e-4e3c-8821-97a263415cb6" />
-
-  Important note: Some FTP servers may have an anonymous login feature, which means you can log in without a username or password. If the server is misconfigured, you can log in using any password.
-
-4. List the files on the machine:
-  After successfully logging in, you can list the files and directories on the target machine using the ls command:
-
-  This will display all the files in the current directory. You should see a file named flag.txt, which is usually the file you're after in penetration testing exercises.
-
-5. Download the flag file:
-  Now that you've found the flag.txt file, use the get command to download it to your local machine and view it:
-
-    get flag.txt
-   <img width="833" alt="HTB_ftp2" src="https://github.com/user-attachments/assets/f4afb235-2260-4eb9-a3f0-a3921396c6b4" />
-  This command transfers the flag.txt file from the target machine to your local machine, where you can view its contents.
-   
-7. Additional FTP commands:
-
-To see a list of available commands for FTP, use the help command while in the FTP session:
-    help
-  If you're unsure about FTP's capabilities or need to check its options, you can run:
-    ftp -?
-  This will display the FTP command options and provide you with useful information for interacting with the service.
-          
-Hack the Box: Dancing (SMB)
-
-1. Check if the Target Machine is Reachable (Ping Test)
-  Before attempting any actions, ensure the machine is online by sending a ping request:
-    ping 10.129.172.28
-   If the machine responds, you're connected and can proceed. If not, check your network settings or ensure the target is powered on.
-
-2. Scan for Open Ports with Nmap
-  Now, let's scan the target for open ports and running services using Nmap:
-    sudo nmap -sV 10.129.172.28
-      sudo: Runs the command with administrator privileges.
-      nmap: Network scanning tool.
-      -sV: Detects service versions running on open ports.
-  This scan will show which ports are open and what services are running on them.
-
-3. Identify Available SMB Shares
-  The scan results reveal available SMB (Server Message Block) shares on the target machine. Common shares include:
-    ADMIN$: A hidden administrative share.
-    C$: The root of the C: drive (default administrative share).
-    IPC$: Used for interprocess communication.
-    WorkShares: A user-defined shared folder.
-
-4. Attempt to Access SMB Shares
-  Now, we try to connect to the shared folders using the smbclient command:
-
-    smbclient \\\\10.129.172.28\\WorkShares
-   <img width="831" alt="HTB_smb1" src="https://github.com/user-attachments/assets/c3bfe13e-16da-42ca-a49b-58ad3b439779" />
-  Breaking down the command:
-      smbclient: Tool to interact with SMB shares.
-      \\\\10.129.172.28\\WorkShares: Specifies the target machine and the share name.
-  If prompted for a password, try entering nothing (some misconfigured shares allow anonymous access).
-
-5. List Available Files and Directories
-  Once inside the share, use the ls command to view its contents:
-    ls
-   <img width="828" alt="HTB_smb2" src="https://github.com/user-attachments/assets/173639ae-bd25-40e2-b4d1-5196220e80b6" />
-  This will list all the files and folders available within WorkShares.
-
-6. Explore Users’ Directories (Amy and James)
-  Navigate through the directories to find useful files.
-  In James' directory, you'll find flag.txt—a key file for this exercise.
-
-7. Download the Flag File
-  To retrieve flag.txt, use the get command:
-    get flag.txt
-  This downloads the file from the target machine to your local machine.
-
-8. View the Flag File Contents
-  Open and read the flag file using:
-    cat flag.txt
-   <img width="824" alt="HTB_smb3" src="https://github.com/user-attachments/assets/b66424ae-23ac-4230-a070-75794e1583f9" />
-  This will display the file's content, which is usually a proof-of-concept flag in penetration testing exercises.
-
-
-Hack The Box: Redeemer (Redis)
-
-1. Check if the Target Machine is Reachable (Ping Test)
-  Before scanning for services, make sure the target machine is online:
-    ping 10.129.252.111
-  If the machine responds, you're good to go! If not, check your network connection or verify that the machine is running.
-
-2. Scan for Open Ports with Nmap
-  Now, let's scan the target for open ports and running services:
-    sudo nmap -sV 10.129.252.111
-      sudo: Runs the command with administrator privileges.
-      nmap: A tool for scanning network devices.
-      -sV: Detects the versions of services running on open ports.
-      The scan shows that port 6379 is open, indicating that a Redis key-value store (version 5.0.7) is running.
-  
-3. Install Redis CLI (If Not Installed)
-  To interact with Redis, we need redis-cli. If it's not installed, install it with:
-    sudo apt install redis-tools
-  This tool allows us to connect to Redis and execute commands.
-
-4. Explore Redis CLI Commands
-  To see available Redis commands, use:
-    redis-cli --help
-   <img width="1008" alt="HTB_redis1" src="https://github.com/user-attachments/assets/585b9727-a10d-44a3-96dd-ba78d2a2ee0a" />
-  This will display useful options and syntax for interacting with the database.
-
-5. Connect to the Redis Server
-  Use the following command to connect:
-    redis-cli -h 10.129.252.111
-      redis-cli: Launches the Redis command-line tool.
-      -h: Specifies the target host (the Redis server).
-  If the connection is successful, you'll see a Redis prompt (e.g., 127.0.0.1:6379>), indicating that you're inside the database.
-
-6. Enumerate Redis Information
-  The info command provides details about the Redis server, including memory usage, connected clients, and database statistics:
-    info
-  Look for the Keyspace section, which shows:
-    The number of databases.
-    The number of keys stored in each database.
-    Expiration settings for keys.
-  In this case, the scan shows one database (index 0).
-
-7. Select the Redis Database
-  Since only one database exists, select it using:
-    select 0
-  This ensures we are working in the correct database.
-
-8. List Available Keys
-  To see all stored keys in the database, use:
-    keys *
-  This command retrieves all keys stored in the Redis database. Keys can contain valuable data such as credentials or configurations.
-
-9. Download or Access Keys
-  Once the keys are listed, retrieve their values using:
-    get <key_name>
-    <img width="805" alt="HTB_redis2" src="https://github.com/user-attachments/assets/333bdf92-386b-4b1b-97d7-824b312d9640" />
-  Replace <key_name> with the actual key you want to view.
+Hack The Box: Redeemer (Redis)<br>
+<br>
+1. Check if the Target Machine is Reachable (Ping Test)<br>
+  Before scanning for services, make sure the target machine is online:<br>
+    ping 10.129.252.111<br>
+  If the machine responds, you're good to go! If not, check your network connection or verify that the machine is running.<br>
+<br>
+2. Scan for Open Ports with Nmap<br>
+  Now, let's scan the target for open ports and running services:<br>
+    sudo nmap -sV 10.129.252.111<br>
+      sudo: Runs the command with administrator privileges.<br>
+      nmap: A tool for scanning network devices.<br>
+      -sV: Detects the versions of services running on open ports.<br>
+      The scan shows that port 6379 is open, indicating that a Redis key-value store (version 5.0.7) is running.<br>
+  <br>
+3. Install Redis CLI (If Not Installed)<br>
+  To interact with Redis, we need redis-cli. If it's not installed, install it with:<br>
+    sudo apt install redis-tools<br>
+  This tool allows us to connect to Redis and execute commands.<br>
+<br>
+4. Explore Redis CLI Commands<br>
+  To see available Redis commands, use:<br>
+    redis-cli --help<br>
+   <img width="1008" alt="HTB_redis1" src="https://github.com/user-attachments/assets/585b9727-a10d-44a3-96dd-ba78d2a2ee0a" /><br>
+  This will display useful options and syntax for interacting with the database.<br>
+<br>
+5. Connect to the Redis Server<br>
+  Use the following command to connect:<br>
+    redis-cli -h 10.129.252.111<br>
+      redis-cli: Launches the Redis command-line tool.<br>
+      -h: Specifies the target host (the Redis server).<br>
+  If the connection is successful, you'll see a Redis prompt (e.g., 127.0.0.1:6379>), indicating that you're inside the database.<br>
+<br>
+6. Enumerate Redis Information<br>
+  The info command provides details about the Redis server, including memory usage, connected clients, and database statistics:<br>
+    info<br>
+  Look for the Keyspace section, which shows:<br>
+    The number of databases.<br>
+    The number of keys stored in each database.<br>
+    Expiration settings for keys.<br>
+  In this case, the scan shows one database (index 0).<br>
+<br>
+7. Select the Redis Database<br>
+  Since only one database exists, select it using:<br>
+    select 0<br>
+  This ensures we are working in the correct database.<br>
+<br>
+8. List Available Keys<br>
+  To see all stored keys in the database, use:<br>
+    keys *<br>
+  This command retrieves all keys stored in the Redis database. Keys can contain valuable data such as credentials or configurations.<br>
+<br>
+9. Download or Access Keys<br>
+  Once the keys are listed, retrieve their values using:<br>
+    get <key_name><br>
+    <img width="805" alt="HTB_redis2" src="https://github.com/user-attachments/assets/333bdf92-386b-4b1b-97d7-824b312d9640" /><br>
+  Replace <key_name> with the actual key you want to view.<br>
 
   
