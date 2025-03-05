@@ -320,7 +320,7 @@ Steps taken to exploit vulnerabilities and gain access.
 Final shell access and the flag(s) captured.
 
 
-Hack the Box: Meow
+Hack the Box: Meow (Telnet)
 
 1. Ping the machine to check connectivity:
   Open a terminal and type the following command:
@@ -358,7 +358,7 @@ In this example, the flag text file content is:
 <img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" />
 This is the flag we were looking for!
 
-Hack the Box: Fawn
+Hack the Box: Fawn (FTP)
 
 1. Ping the machine to check connectivity:
   First, you need to check if the target machine is reachable. Open a terminal and run the following command:
@@ -390,13 +390,13 @@ Hack the Box: Fawn
   This will display all the files in the current directory. You should see a file named flag.txt, which is usually the file you're after in penetration testing exercises.
 
 5. Download the flag file:
-  Now that you've found the flag.txt file, use the get command to download it to your local machine:
+  Now that you've found the flag.txt file, use the get command to download it to your local machine and view it:
 
     get flag.txt
    <img width="833" alt="HTB_ftp2" src="https://github.com/user-attachments/assets/f4afb235-2260-4eb9-a3f0-a3921396c6b4" />
   This command transfers the flag.txt file from the target machine to your local machine, where you can view its contents.
-
-6. Additional FTP commands:
+   
+7. Additional FTP commands:
 
 To see a list of available commands for FTP, use the help command while in the FTP session:
     help
@@ -404,5 +404,60 @@ To see a list of available commands for FTP, use the help command while in the F
     ftp -?
   This will display the FTP command options and provide you with useful information for interacting with the service.
           
+Hack the Box: Dancing (SMB)
+
+1. Check if the Target Machine is Reachable (Ping Test)
+  Before attempting any actions, ensure the machine is online by sending a ping request:
+    ping 10.129.172.28
+   If the machine responds, you're connected and can proceed. If not, check your network settings or ensure the target is powered on.
+
+2. Scan for Open Ports with Nmap
+  Now, let's scan the target for open ports and running services using Nmap:
+    sudo nmap -sV 10.129.172.28
+      sudo: Runs the command with administrator privileges.
+      nmap: Network scanning tool.
+      -sV: Detects service versions running on open ports.
+  This scan will show which ports are open and what services are running on them.
+
+3. Identify Available SMB Shares
+  The scan results reveal available SMB (Server Message Block) shares on the target machine. Common shares include:
+    ADMIN$: A hidden administrative share.
+    C$: The root of the C: drive (default administrative share).
+    IPC$: Used for interprocess communication.
+    WorkShares: A user-defined shared folder.
+
+4. Attempt to Access SMB Shares
+  Now, we try to connect to the shared folders using the smbclient command:
+
+    smbclient \\\\10.129.172.28\\WorkShares
+   <img width="831" alt="HTB_smb1" src="https://github.com/user-attachments/assets/c3bfe13e-16da-42ca-a49b-58ad3b439779" />
+  Breaking down the command:
+      smbclient: Tool to interact with SMB shares.
+      \\\\10.129.172.28\\WorkShares: Specifies the target machine and the share name.
+  If prompted for a password, try entering nothing (some misconfigured shares allow anonymous access).
+
+5. List Available Files and Directories
+  Once inside the share, use the ls command to view its contents:
+    ls
+   <img width="828" alt="HTB_smb2" src="https://github.com/user-attachments/assets/173639ae-bd25-40e2-b4d1-5196220e80b6" />
+  This will list all the files and folders available within WorkShares.
+
+6. Explore Users’ Directories (Amy and James)
+  Navigate through the directories to find useful files.
+  In James' directory, you'll find flag.txt—a key file for this exercise.
+
+7. Download the Flag File
+  To retrieve flag.txt, use the get command:
+    get flag.txt
+  This downloads the file from the target machine to your local machine.
+
+8. View the Flag File Contents
+  Open and read the flag file using:
+    cat flag.txt
+   <img width="824" alt="HTB_smb3" src="https://github.com/user-attachments/assets/b66424ae-23ac-4230-a070-75794e1583f9" />
+  This will display the file's content, which is usually a proof-of-concept flag in penetration testing exercises.
+
+
+
 
   
