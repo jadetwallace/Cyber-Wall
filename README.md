@@ -79,7 +79,6 @@ A local test environment with your target system (e.g., Metasploitable).<br>
 <br>
 
 [Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
-
 <br>
 
 ## **MODULE 1: Anonymous Connections**<br>
