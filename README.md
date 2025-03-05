@@ -29,7 +29,7 @@ How to Set Up Kali Linux in UTM<br>
     The installation process may take a few minutes.<br>
     After it finishes, shut down Kali.<br>
  <br>
-  5. Right-click the Kali machine and click Edit.<br>
+  5. Right-click the Kali machine and click Edit. <br>
     Scroll to find the IDE Drive associated with the ISO and delete it.<br>
   <br>
   6. Start the Kali machine, and you’re ready to go!<br>
