@@ -1,10 +1,11 @@
 # Cyber-Wall
 
 ## TABLE OF CONTENTS
-1. [Set Up](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#virtual-machine--tool-setup)
-2. Module 1 - Anonymous Connections
-3. Module 2 - Port Scanning with Nmap
-4. Module 3 - MongoDB Server
+1. [SET UP](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#virtual-machine--tool-setup)
+2. [Module 1 - Anonymous Connections](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#module-1)
+4. [Module 2 - Port Scanning with Nmap](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#module-2-port-scanning-with-nmap)
+5. [Module 3 - MongoDB Server](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#module-3-learn-how-to-connect-to-a-mongodb-server)
+6. [Module 4 - Practical Application - Hack the Box](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#module-4-practical-application--hack-the-boxhtb-)
 
 <br><br>
    
@@ -77,7 +78,7 @@ A local test environment with your target system (e.g., Metasploitable).<br>
   Once the machine is running, you’re all set to start using it!<br>
 <br><br> 
 
-## **MODULE 1**<br>
+## **MODULE 1: Anonymous Connections**<br>
 <br>
 Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories<br>
 A. Identify IP Addresses on Your Network<br>
@@ -167,7 +168,7 @@ If you can’t connect, check the following:<br>
   Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.<br>
 <br><br>
 
-## **MODULE 2: PORT SCANNING WITH NMAP**<br>
+## **MODULE 2: Port Scanning With Nmap**<br>
 <br>
 Port scanning is an essential part of cybersecurity. It helps you discover open ports, running services, and potential vulnerabilities on a target machine. In this guide, you’ll learn how to use Nmap, a powerful network scanning tool, to identify active ports and analyze their services.<br>
 <br>
@@ -229,7 +230,7 @@ Save the results to a file for documentation.<br>
 Close unnecessary open ports to reduce attack risks.<br>
 
 <br><br>
-## **MODULE 3: LEARN HOW TO CONNECT TO A MONGODB SERVER**<br>
+## **MODULE 3: Learn How To Connect To A MongoDB Server**<br>
 <br>
 1. Install MongoDB on Windows<br>
 Start your Windows VM and open a browser.<br>
