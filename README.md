@@ -1,6 +1,6 @@
 # Cyber-Wall
 
-VIRTUAL MACHINE & TOOL SETUP
+**VIRTUAL MACHINE & TOOL SETUP**
 Before starting, make sure you have:
 <br> <br>
 A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<br>
@@ -69,9 +69,9 @@ How to Set Up Metasploitable 2<br>
   Once the machine is running, you’re all set to start using it!<br>
 <br><br> 
 
-MODULE 1<br>
+**MODULE 1**<br>
 <br>
-**Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**<br>
+Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories<br>
 A. Identify IP Addresses on Your Network<br>
 To begin, use the command 'ifconfig' to check your machine’s network configuration. This will show you the IP addresses of the devices on your network.<br>
 <br>
@@ -97,7 +97,7 @@ Once the Nmap scan shows port 21 is open, you can use the FTP command to connect
 This command allows you to access the Metasploitable machine via FTP. You’re connecting anonymously, meaning you don’t need a username or password.<br>
 <br><br>
 
-**Step 2: SMB (Server Message Block) - Access Shared Resources**<br>
+Step 2: SMB (Server Message Block) - Access Shared Resources<br>
 A. List Accessible Ports with Nmap<br>
 Use Nmap to identify all the accessible ports on the target machine and see if SMB services are available.<br>
   nmap -sV 192.168.164.4 -vv<br>
@@ -129,7 +129,7 @@ Once you've found the shared file you want to access (e.g., the /tmp directory),
 This will exploit the SMB vulnerability and allow you to access the files in the shared directory.<br>
 <br><br>
  
-**Step 3: Telnet - Connect to Remote Servers**<br>
+Step 3: Telnet - Connect to Remote Servers<br>
 A. Use Telnet to Connect<br>
 Telnet is another tool used for remote access to machines. In Metasploit, you can use the auxiliary/scanner/telnet module to scan and connect to remote Telnet servers.
   msfconsole<br>
@@ -285,7 +285,7 @@ When you're done, exit the shell by typing:<br>
   exit<br>
 <br>
 
-**MODULE 4: Practical Application – Hack the Box (HTB)**<br>
+**MODULE 4: Practical Application – Hack the Box(HTB)** <br>
 How to Set Up the Environment<br>
 <br>
 1. Open the machine dropdown menu:<br>
@@ -357,7 +357,25 @@ In this example, the flag text file content is:<br>
     b40abdfe23665f766f9c61ecba8a4c19<br>
 <img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" /><br>
 This is the flag we were looking for!<br>
-<br>
+<br><br>
+**Module Tasks** <br>
+What does the acronym VM stand for? <br>
+  Virtual Machine<br>
+What tool do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection? It's also known as a console or shell.<br>
+  Terminal<br>
+What service do we use to form our VPN connection into HTB labs?<br>
+  OpenVPN<br>
+What tool do we use to test our connection to the target with an ICMP echo request?<br>
+  ping<br>
+What is the name of the most common tool for finding open ports on a target?<br>
+  Nmap<br>
+What service do we identify on port 23/tcp during our scans?<br>
+  Telnet<br>
+What username is able to log into the target over telnet with a blank password?<br>
+  root<br>
+Submit root flag<br>
+  b40abdfe23665f766f9c61ecba8a4c19<br>
+<br> <br>
 Hack the Box: Fawn (FTP)<br>
 <br>
 1. Ping the machine to check connectivity:<br>
@@ -404,6 +422,33 @@ To see a list of available commands for FTP, use the help command while in the F
     ftp -?<br>
   This will display the FTP command options and provide you with useful information for interacting with the service.<br>
           <br>
+<br><br>
+**Module Tasks** <br>
+What does the 3-letter acronym FTP stand for?<br>
+  File Transfer Protocol<br>
+Which port does the FTP service listen on usually?<br>
+  21<br>
+FTP sends data in the clear, without any encryption. What acronym is used for a later protocol designed to provide similar functionality to FTP but securely, as an extension of the SSH protocol?<br>
+  SFTP (SSH File Transfer Protocol)<br>
+What is the command we can use to send an ICMP echo request to test our connection to the target?<br>
+  ping<br>
+From your scans, what version is FTP running on the target?<br>
+  vsftpd 3.0.3<br>
+From your scans, what OS type is running on the target?<br>
+  Unix<br>
+What is the command we need to run in order to display the 'ftp' client help menu?<br>
+  ftp -?<br>
+What is username that is used over FTP when you want to log in without having an account?<br>
+  anonymous<br>
+What is the response code we get for the FTP message 'Login successful'?<br>
+  230<br>
+There are a couple of commands we can use to list the files and directories available on the FTP server. One is dir. What is the other that is a common way to list files on a Linux system.<br>
+  ls<br>
+What is the command used to download the file we found on the FTP server?<br>
+  get<br>
+Submit root flag<br>
+  035db21c881520061c53e0536e44f815<br>
+<br><br><
 Hack the Box: Dancing (SMB)<br>
 <br>
 1. Check if the Target Machine is Reachable (Ping Test)<br>
@@ -456,6 +501,24 @@ Hack the Box: Dancing (SMB)<br>
     cat flag.txt<br>
    <img width="824" alt="HTB_smb3" src="https://github.com/user-attachments/assets/b66424ae-23ac-4230-a070-75794e1583f9" /><br>
   This will display the file's content, which is usually a proof-of-concept flag in penetration testing exercises.<br>
+<br><br>
+**Module Tasks** <br>
+What does the 3-letter acronym SMB stand for?<br>
+  Server Message Block<br>
+What port does SMB use to operate at?<br>
+   445<br>
+What is the service name for port 445 that came up in our Nmap scan?<br>
+  microsoft-ds<br>
+What is the 'flag' or 'switch' that we can use with the smbclient utility to 'list' the available shares on Dancing?<br>
+  -L<br>
+How many shares are there on Dancing?<br>
+  4<br>
+What is the name of the share we are able to access in the end with a blank password?<br>
+  WorkShare<br>
+What is the command we can use within the SMB shell to download the files we find?<br>
+  get<br>
+Submit root flag<br>
+  5f61c10dffbc77a704d76016a22f1664<br>
 <br><br>
 
 Hack The Box: Redeemer (Redis)<br>
@@ -515,5 +578,37 @@ Hack The Box: Redeemer (Redis)<br>
     get <key_name><br>
     <img width="805" alt="HTB_redis2" src="https://github.com/user-attachments/assets/333bdf92-386b-4b1b-97d7-824b312d9640" /><br>
   Replace <key_name> with the actual key you want to view.<br>
+<br><br>
+**Module Tasks** <br>
+Which TCP port is open on the machine?<br>
+  6379<br>
+Which service is running on the port that is open on the machine?<br>
+  redis<br>
+What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database<br>
+  In-memory Database<br>
+Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.<br>
+  redis-cli<br>
+Which flag is used with the Redis command-line utility to specify the hostname?<br>
+  -h<br>
+Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?<br>
+  info<br>
+What is the version of the Redis server being used on the target machine?<br>
+  5.0.7<br>
+Which command is used to select the desired database in Redis?<br>
+  select<br>
+How many keys are present inside the database with index 0?<br>
+  4<br>
+Which command is used to obtain all the keys in a database?<br>
+  keys *<br>
+Submit root flag<br>
+  03e1d2b376c37ab3f5319922053953eb<br>
+
+
+
+
+
+
+
+  
 
   
