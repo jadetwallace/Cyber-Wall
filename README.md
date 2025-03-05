@@ -4,18 +4,18 @@ VIRTUAL MACHINE & TOOL SETUP
 Before starting, make sure you have:
 <br> <br>
 A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<br>
-Kali Linux (either the ISO or pre-installed version).
-A local test environment with your target system (e.g., Metasploitable).
-
-How to Set Up UTM (for Mac)
-  Go to the UTM website: https://mac.getutm.app/
-  Download UTM and follow the installation instructions.
-
-How to Set Up Kali Linux in UTM<p>
-  1. Download Kali Linux from https://www.kali.org/:<p>
-    Click "Download".<p>
-    Under "Installer images", select and download the 64-bit version.<p>
-<p>
+Kali Linux (either the ISO or pre-installed version).<br>
+A local test environment with your target system (e.g., Metasploitable).<br>
+<br><br>
+How to Set Up UTM (for Mac)<br>
+  Go to the UTM website: https://mac.getutm.app/<br>
+  Download UTM and follow the installation instructions.<br>
+<br><br>
+How to Set Up Kali Linux in UTM<br>
+  1. Download Kali Linux from https://www.kali.org/:<br>
+    Click "Download".<br>
+    Under "Installer images", select and download the 64-bit version.<br>
+<br>
   2. Open UTM and click Create new virtual machine.<p>
     Choose Virtualize.<p>
     Select Linux (OS).<p>
