@@ -1,60 +1,73 @@
 # Cyber-Wall
 
-VIRTUAL MACHINE & TOOL PREP <p>
-Before proceeding, ensure you have the following:
+VIRTUAL MACHINE & TOOL SETUP
+Before starting, make sure you have:
 
-A virtualized environment (VirtualBox, VMware), I used UTM as I own a Mac. On which you will install:
-  Kali Linux ISO or pre-installed Kali Linux
-  A local test environment where you will have your target system (I used Metasploitable)
+A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.
+Kali Linux (either the ISO or pre-installed version).
+A local test environment with your target system (e.g., Metasploitable).
 
-**How to set up UTM** <p>
-  Download UTM from the website: https://mac.getutm.app/ <p>
-  Click download and follow the instructions
+How to Set Up UTM (for Mac)
+  Go to the UTM website: https://mac.getutm.app/
+  Download UTM and follow the installation instructions.
+
+How to Set Up Kali Linux in UTM
+  1. Download Kali Linux from https://www.kali.org/:
+    Click "Download".
+    Under "Installer images", select and download the 64-bit version.
+
+  2. Open UTM and click Create new virtual machine.
+    Choose Virtualize.
+    Select Linux (OS).
+    Browse and select the Kali Linux ISO file, then click Continue.
   
-**How to set up Kali Linux** <p>
-  Download Kali Linux from the website: https://www.kali.org/ <p>
-  Click Download <p>
-  Click Installer images and download the 64-bit version <p>
+  3. Choose your hardware and storage preferences.
+    Title your Kali machine.
+  
+  4. Start the Kali machine:
+    Select Graphical install and follow the installation prompts.
+    The installation process may take a few minutes.
+    After it finishes, shut down Kali.
+  
+  5. Right-click the Kali machine and click Edit.
+    Scroll to find the IDE Drive associated with the ISO and delete it.
+  
+  6. Start the Kali machine, and you’re ready to go!
 
-  Launch UTM & click on Create new virtual machine <p>
-  Select Virtualise <p>
-  Select Linux (OS) <p>
-  Browse and select the ISO kali file, click continue <p>
-  Select hardware and storage preferences <p>
-  Title your Kali Machine <p>
-  Upon Starting the kali machine, select graphical install and answer installer questions as are appropriate to you <p>
-  Please note that the installation process may take a few minutes to complete. Once finished, shut down Kali <p>
-  Right click Kali and hit edit <p>
-  On the left of the screen scroll down and delete the IDE Drive associated with the ISO drive <p>
-  Start the Kali machine and begin! <p>
+How to Set Up Metasploitable 2
+  1. Download Metasploitable 2 from this link and expand the zip file.
 
-**How to set up Metasploitable 2** <p>
-  Download Metasploitable 2 from website: https://docs.rapid7.com/metasploit/metasploitable-2/ <p>
-  Select the link: https://information.rapid7.com/metasploitable-download.html <p>
-  Expand the zip file and convert the .vmdk file to <p>
-    Open Terminal download the tool Qemu and navigate to the downloaded Metasploitable 2 folder <p>
-    Type: brew install qemu <p>
-          cd Downloads <p>
-          cd Metasploitable2-Linux (whatever the name of the file is) <p>
-          qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2 <p>
-          
-  Launch UTM & click on Create new virtual machine <p>
-  Select Emulate <p>
-  Select Other <p>
-  Selct None for Boot Device <p>
-  Set memory to 512, storage 10 GB <p>
-  Click conitnue until you get to the Title page <p>
-  Title your Metasploitable machine <p>
-  Right click Metasploitable machine and hit edit <p>
-  On the left of the screen, select QEmU and deselect UEFI Boot <p>
-  Scroll down to the IDE Drive and delete it <p>
-  Then hit New (to create a new drive), then import, and navigate to and select the qcow2 file <p>
-  Start the Metasploitable machine, let it start up and begin! <p>
-  Note that the login credentials will be username: msfadmin password: msfadmin <p>
+  2. Convert the .vmdk file to .qcow2 format:
+    Open Terminal and install Qemu:
+      brew install qemu
+    Navigate to the folder where you downloaded Metasploitable 2:
+      cd Downloads
+      cd Metasploitable2-Linux
+    Convert the file using this command:
+      qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2
+     
+  3. Open UTM and click Create new virtual machine.
+    Select Emulate and choose Other.
+    Choose None for Boot Device.
+    Set memory to 512 MB and storage to 10 GB.
+    Continue until you reach the Title page, and give your Metasploitable machine a name.
 
-**How to set up Windows 11**
+  4. Right-click the Metasploitable machine and click Edit.
+    Select QEMU on the left.
+    Deselect UEFI Boot.
+    Scroll to the IDE Drive and delete it.
 
+  5. Click New to create a new drive.
+    Choose Import and navigate to the qcow2 file you created earlier.
+    Select it and finish the setup.
 
+  6. Start the Metasploitable machine and let it boot up!
+
+  Login Credentials for Metasploitable
+    Username: msfadmin
+    Password: msfadmin
+  Once the machine is running, you’re all set to start using it!
+  
 
 MODULE 1
 **Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**
@@ -127,6 +140,7 @@ Once the module is selected, use the show options command to see what needs to b
 
 Step 4: Rsync - Sync Files Over SSH
 Rsync is a tool that allows you to sync files between remote and local systems over SSH. If you're already familiar with SSH, using rsync will make transferring files seamless and efficient.
+  rsync -avz -e ssh /local/folder/ remoteuser@remotehost:/remote/folder/
 
 Step 5: RDP (Remote Desktop Protocol) - Establish Anonymous RDP Session
 To access a Windows machine using RDP (Remote Desktop Protocol), you can use rdesktop or xfreerdp command on Linux. This allows you to connect to a Windows machine and interact with its graphical interface.
@@ -139,29 +153,9 @@ Replace [host:port] with the IP address and RDP port (default is 3389).
 
 B. Troubleshoot RDP Connection Issues
 If you can’t connect, check the following:
-
-Ping the target machine to make sure it’s reachable.
-Ensure RDP is enabled on the Windows machine.
-Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.
-
-
-
-  Access Metasploit
-  To utilise Telnet use the command: auxiliary/scanner/telnet/
-  <img width="1321" alt="Telnet1" src="https://github.com/user-attachments/assets/b41830fe-3d03-4df8-b20e-5470ef2b07c6" />
-  Use the command 'show options' to list the various settings to be configured. Set the rhosts to your target machine's IP address and run the exploit to gain access.
-  <img width="1319" alt="Telnet_final" src="https://github.com/user-attachments/assets/6f74d7bd-34ce-456e-8b3b-cded818342cd" />
-<p>  
-**Rsync: Use rsync for syncing files over SSH**
-<p> <p>
-**RDP: Use a tool like rdesktop or FreeRDP to establish an anonymous RDP session** <p>
-  To access the Windows machine using rdesktop: use the command: rdesktop -u [username] -p [password] [host:port] <p>
-  If unable to gain remote access, ensure you have access by: <p>
-    - ping target machine <p>
-    - ensure RDP is turned on <p>
-    - ensure the firewall (like Windows Defender is off) <p>
-   <i> (for RDP a new Windows machine was created due to previous incompatible OS for the tool) 
-<img width="727" alt="RDP1" src="https://github.com/user-attachments/assets/d01c2f6f-330f-4a75-ac81-5ced22f1e5ba" />
+  Ping the target machine to make sure it’s reachable.
+  Ensure RDP is enabled on the Windows machine.
+  Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.
 
 
 **MODULE 2: PORT SCANNING WITH NMAP**
