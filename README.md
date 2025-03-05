@@ -77,7 +77,8 @@ A local test environment with your target system (e.g., Metasploitable).<br>
     Password: msfadmin<br>
   Once the machine is running, you’re all set to start using it!<br>
 <br>
-[TOP](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#table-of-contents)
+[top](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#table-of-contents)
+
 <br> 
 
 ## **MODULE 1: Anonymous Connections**<br>
