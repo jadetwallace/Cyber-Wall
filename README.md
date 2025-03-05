@@ -1,6 +1,6 @@
 # Cyber-Wall
 
-## H2 **VIRTUAL MACHINE & TOOL SETUP**
+## **VIRTUAL MACHINE & TOOL SETUP**
 Before starting, make sure you have:
 <br> <br>
 A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<br>
