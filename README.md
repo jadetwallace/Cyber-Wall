@@ -1,7 +1,7 @@
 # Cyber-Wall
 
 ## TABLE OF CONTENTS
-1. Set Up (https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#virtual-machine--tool-setup)
+1. [Set Up](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#virtual-machine--tool-setup)
 2. Module 1 - Anonymous Connections
 3. Module 2 - Port Scanning with Nmap
 4. Module 3 - MongoDB Server
