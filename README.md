@@ -358,6 +358,51 @@ In this example, the flag text file content is:
 <img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" />
 This is the flag we were looking for!
 
+Hack the Box: Fawn
+
+1. Ping the machine to check connectivity:
+  First, you need to check if the target machine is reachable. Open a terminal and run the following command:
+
+    ping 10.129.206.86
+    This command sends a signal to the target machine and waits for a response. If you receive replies like "Reply from 10.129.206.86", it means the machine is online         and you have network connectivity.
+
+2. Scan for open ports using Nmap:
+  Now, let's scan the target machine for open ports. Type the following command to see what services are running on which ports:
+
+    sudo nmap -sV 10.129.206.86
+    This Nmap command checks for open ports and attempts to identify the services running on them. This step helps you gather information about the target machine and        decide which service to target for exploitation.
+
+3. Install and use FTP to exploit the machine:
+  FTP (File Transfer Protocol) is a common service that can have misconfigurations, such as allowing anonymous access.
+  First, make sure FTP is installed on your system by running:
+
+    sudo apt-get install ftp
+  Once it's installed, you can use FTP to connect to the target machine. Run this command:
+
+    ftp 10.129.206.86
+  <img width="834" alt="HTB_ftp1" src="https://github.com/user-attachments/assets/391d77ae-de9e-4e3c-8821-97a263415cb6" />
+
+  Important note: Some FTP servers may have an anonymous login feature, which means you can log in without a username or password. If the server is misconfigured, you can log in using any password.
+
+4. List the files on the machine:
+  After successfully logging in, you can list the files and directories on the target machine using the ls command:
+
+  This will display all the files in the current directory. You should see a file named flag.txt, which is usually the file you're after in penetration testing exercises.
+
+5. Download the flag file:
+  Now that you've found the flag.txt file, use the get command to download it to your local machine:
+
+    get flag.txt
+   <img width="833" alt="HTB_ftp2" src="https://github.com/user-attachments/assets/f4afb235-2260-4eb9-a3f0-a3921396c6b4" />
+  This command transfers the flag.txt file from the target machine to your local machine, where you can view its contents.
+
+6. Additional FTP commands:
+
+To see a list of available commands for FTP, use the help command while in the FTP session:
+    help
+  If you're unsure about FTP's capabilities or need to check its options, you can run:
+    ftp -?
+  This will display the FTP command options and provide you with useful information for interacting with the service.
           
 
   
