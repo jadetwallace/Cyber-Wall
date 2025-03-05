@@ -1,99 +1,99 @@
 # Cyber-Wall
 
-VIRTUAL MACHINE & TOOL SETUP
-Before starting, make sure you have:
+VIRTUAL MACHINE & TOOL SETUP<p>
+Before starting, make sure you have:<p><p>
 
-A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.
-Kali Linux (either the ISO or pre-installed version).
-A local test environment with your target system (e.g., Metasploitable).
+A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<p>
+Kali Linux (either the ISO or pre-installed version).<p>
+A local test environment with your target system (e.g., Metasploitable).<p>
+<p>
+How to Set Up UTM (for Mac)<p>
+  Go to the UTM website: https://mac.getutm.app/<p>
+  Download UTM and follow the installation instructions.<p>
+<p>
+How to Set Up Kali Linux in UTM<p>
+  1. Download Kali Linux from https://www.kali.org/:<p>
+    Click "Download".<p>
+    Under "Installer images", select and download the 64-bit version.<p>
+<p>
+  2. Open UTM and click Create new virtual machine.<p>
+    Choose Virtualize.<p>
+    Select Linux (OS).<p>
+    Browse and select the Kali Linux ISO file, then click Continue.<p>
+  <p>
+  3. Choose your hardware and storage preferences.<p>
+    Title your Kali machine.<p>
+  <p>
+  4. Start the Kali machine:<p>
+    Select Graphical install and follow the installation prompts.<p>
+    The installation process may take a few minutes.<p>
+    After it finishes, shut down Kali.<p>
+  <p>
+  5. Right-click the Kali machine and click Edit.<p>
+    Scroll to find the IDE Drive associated with the ISO and delete it.<p>
+  <p>
+  6. Start the Kali machine, and you’re ready to go!<p>
+<p>
+How to Set Up Metasploitable 2<p>
+  1. Download Metasploitable 2 from this link and expand the zip file.<p>
+<p>
+  2. Convert the .vmdk file to .qcow2 format:<p>
+    Open Terminal and install Qemu:<p>
+      brew install qemu<p>
+    Navigate to the folder where you downloaded Metasploitable 2:<p>
+      cd Downloads<p>
+      cd Metasploitable2-Linux<p>
+    Convert the file using this command:<p>
+      qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2<p>
+ <p>    
+  3. Open UTM and click Create new virtual machine.<p>
+    Select Emulate and choose Other.<p>
+    Choose None for Boot Device.<p>
+    Set memory to 512 MB and storage to 10 GB.<p>
+    Continue until you reach the Title page, and give your Metasploitable machine a name.<p>
+<p>
+  4. Right-click the Metasploitable machine and click Edit.<p>
+    Select QEMU on the left.<p>
+    Deselect UEFI Boot.<p>
+    Scroll to the IDE Drive and delete it.<p>
+<p>
+  5. Click New to create a new drive.<p>
+    Choose Import and navigate to the qcow2 file you created earlier.<p>
+    Select it and finish the setup.<p>
+<p>
+  6. Start the Metasploitable machine and let it boot up!<p>
+<p>
+  Login Credentials for Metasploitable<p>
+    Username: msfadmin<p>
+    Password: msfadmin<p>
+  Once the machine is running, you’re all set to start using it!<p>
+<p><p>  
 
-How to Set Up UTM (for Mac)
-  Go to the UTM website: https://mac.getutm.app/
-  Download UTM and follow the installation instructions.
-
-How to Set Up Kali Linux in UTM
-  1. Download Kali Linux from https://www.kali.org/:
-    Click "Download".
-    Under "Installer images", select and download the 64-bit version.
-
-  2. Open UTM and click Create new virtual machine.
-    Choose Virtualize.
-    Select Linux (OS).
-    Browse and select the Kali Linux ISO file, then click Continue.
-  
-  3. Choose your hardware and storage preferences.
-    Title your Kali machine.
-  
-  4. Start the Kali machine:
-    Select Graphical install and follow the installation prompts.
-    The installation process may take a few minutes.
-    After it finishes, shut down Kali.
-  
-  5. Right-click the Kali machine and click Edit.
-    Scroll to find the IDE Drive associated with the ISO and delete it.
-  
-  6. Start the Kali machine, and you’re ready to go!
-
-How to Set Up Metasploitable 2
-  1. Download Metasploitable 2 from this link and expand the zip file.
-
-  2. Convert the .vmdk file to .qcow2 format:
-    Open Terminal and install Qemu:
-      brew install qemu
-    Navigate to the folder where you downloaded Metasploitable 2:
-      cd Downloads
-      cd Metasploitable2-Linux
-    Convert the file using this command:
-      qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2
-     
-  3. Open UTM and click Create new virtual machine.
-    Select Emulate and choose Other.
-    Choose None for Boot Device.
-    Set memory to 512 MB and storage to 10 GB.
-    Continue until you reach the Title page, and give your Metasploitable machine a name.
-
-  4. Right-click the Metasploitable machine and click Edit.
-    Select QEMU on the left.
-    Deselect UEFI Boot.
-    Scroll to the IDE Drive and delete it.
-
-  5. Click New to create a new drive.
-    Choose Import and navigate to the qcow2 file you created earlier.
-    Select it and finish the setup.
-
-  6. Start the Metasploitable machine and let it boot up!
-
-  Login Credentials for Metasploitable
-    Username: msfadmin
-    Password: msfadmin
-  Once the machine is running, you’re all set to start using it!
-  
-
-MODULE 1
-**Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**
-A. Identify IP Addresses on Your Network
-To begin, use the command 'ifconfig' to check your machine’s network configuration. This will show you the IP addresses of the devices on your network.
-
-For example, on my network:
-  Kali machine: 192.168.64.2
-  Metasploitable machine: 192.168.64.4
-
-B. Scan Target Machine with Nmap
-To identify which ports are open on the target machine, use Nmap to scan port 21, which is the standard port for FTP.
-  nmap 192.168.64.4 -v -sT -SV -p 21 -O
-<img width="1171" alt="FTP1" src="https://github.com/user-attachments/assets/4eb83929-f1a2-4e79-b16d-82020468d3d1" />
-<img width="1028" alt="FTP2" src="https://github.com/user-attachments/assets/f1d5bfa7-a80b-43cc-ac15-b4658b077e9e" />
--v: Verbose mode, gives detailed results.
--sT: Performs a TCP connect scan.
--SV: Identifies services running on the ports.
--p 21: Scans port 21 (FTP).
--O: Detects the target’s operating system.
-
-C. Connect to the Target with FTP
-Once the Nmap scan shows port 21 is open, you can use the FTP command to connect to the target machine.
-  ftp 192.168.64.4
-<img width="559" alt="FTP3" src="https://github.com/user-attachments/assets/2c146e96-8c3e-4664-9ca8-3816a3367052" />
-This command allows you to access the Metasploitable machine via FTP. You’re connecting anonymously, meaning you don’t need a username or password.
+MODULE 1<p>
+**Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**<p>
+A. Identify IP Addresses on Your Network<p>
+To begin, use the command 'ifconfig' to check your machine’s network configuration. This will show you the IP addresses of the devices on your network.<p>
+<p>
+For example, on my network:<p>
+  Kali machine: 192.168.64.2<p>
+  Metasploitable machine: 192.168.64.4<p>
+<p>
+B. Scan Target Machine with Nmap<p>
+To identify which ports are open on the target machine, use Nmap to scan port 21, which is the standard port for FTP.<p>
+  nmap 192.168.64.4 -v -sT -SV -p 21 -O<p>
+<img width="1171" alt="FTP1" src="https://github.com/user-attachments/assets/4eb83929-f1a2-4e79-b16d-82020468d3d1" /> <p>
+<img width="1028" alt="FTP2" src="https://github.com/user-attachments/assets/f1d5bfa7-a80b-43cc-ac15-b4658b077e9e" /> <p>
+-v: Verbose mode, gives detailed results.<p>
+-sT: Performs a TCP connect scan.<p>
+-SV: Identifies services running on the ports.<p>
+-p 21: Scans port 21 (FTP).<p>
+-O: Detects the target’s operating system.<p>
+<p>
+C. Connect to the Target with FTP<p>
+Once the Nmap scan shows port 21 is open, you can use the FTP command to connect to the target machine.<p>
+  ftp 192.168.64.4<p>
+<img width="559" alt="FTP3" src="https://github.com/user-attachments/assets/2c146e96-8c3e-4664-9ca8-3816a3367052" /><p>
+This command allows you to access the Metasploitable machine via FTP. You’re connecting anonymously, meaning you don’t need a username or password.<p>
 
 
 **Step 2: SMB (Server Message Block) - Access Shared Resources**
