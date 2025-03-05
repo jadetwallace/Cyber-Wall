@@ -2,8 +2,8 @@
 
 VIRTUAL MACHINE & TOOL SETUP
 Before starting, make sure you have:
-
-A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.
+<br>
+A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<br>
 Kali Linux (either the ISO or pre-installed version).
 A local test environment with your target system (e.g., Metasploitable).
 
