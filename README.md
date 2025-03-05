@@ -78,6 +78,7 @@ A local test environment with your target system (e.g., Metasploitable).<br>
   Once the machine is running, you’re all set to start using it!<br>
 <br>
 [Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
+
 <br>
 
 ## **MODULE 1: Anonymous Connections**<br>
@@ -170,6 +171,7 @@ If you can’t connect, check the following:<br>
   Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.<br>
 <br>
 [Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
+
 <br>
 
 ## **MODULE 2: Port Scanning With Nmap**<br>
@@ -232,9 +234,9 @@ Port 3306 (MySQL Database) → If exposed, an attacker could attempt to access t
 Final Step: Save Your Findings and Exit<br>
 Save the results to a file for documentation.<br>
 Close unnecessary open ports to reduce attack risks.<br>
-
 <br>
-[TOP](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#table-of-contents)
+[Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
+
 <br>
 ## **MODULE 3: Learn How To Connect To A MongoDB Server**<br>
 <br>
