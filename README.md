@@ -1,5 +1,13 @@
 # Cyber-Wall
 
+## TABLE OF CONTENTS
+1. Set Up
+2. Module 1 - Anonymous Connections
+3. Module 2 - Port Scanning with Nmap
+4. Module 3 - MongoDB Server
+
+<br><br>
+   
 ## **VIRTUAL MACHINE & TOOL SETUP**
 Before starting, make sure you have:
 <br> <br>
