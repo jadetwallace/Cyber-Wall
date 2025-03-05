@@ -458,6 +458,62 @@ Hack the Box: Dancing (SMB)
   This will display the file's content, which is usually a proof-of-concept flag in penetration testing exercises.
 
 
+Hack The Box: Redeemer (Redis)
 
+1. Check if the Target Machine is Reachable (Ping Test)
+  Before scanning for services, make sure the target machine is online:
+    ping 10.129.252.111
+  If the machine responds, you're good to go! If not, check your network connection or verify that the machine is running.
+
+2. Scan for Open Ports with Nmap
+  Now, let's scan the target for open ports and running services:
+    sudo nmap -sV 10.129.252.111
+      sudo: Runs the command with administrator privileges.
+      nmap: A tool for scanning network devices.
+      -sV: Detects the versions of services running on open ports.
+      The scan shows that port 6379 is open, indicating that a Redis key-value store (version 5.0.7) is running.
+  
+3. Install Redis CLI (If Not Installed)
+  To interact with Redis, we need redis-cli. If it's not installed, install it with:
+    sudo apt install redis-tools
+  This tool allows us to connect to Redis and execute commands.
+
+4. Explore Redis CLI Commands
+  To see available Redis commands, use:
+    redis-cli --help
+   <img width="1008" alt="HTB_redis1" src="https://github.com/user-attachments/assets/585b9727-a10d-44a3-96dd-ba78d2a2ee0a" />
+  This will display useful options and syntax for interacting with the database.
+
+5. Connect to the Redis Server
+  Use the following command to connect:
+    redis-cli -h 10.129.252.111
+      redis-cli: Launches the Redis command-line tool.
+      -h: Specifies the target host (the Redis server).
+  If the connection is successful, you'll see a Redis prompt (e.g., 127.0.0.1:6379>), indicating that you're inside the database.
+
+6. Enumerate Redis Information
+  The info command provides details about the Redis server, including memory usage, connected clients, and database statistics:
+    info
+  Look for the Keyspace section, which shows:
+    The number of databases.
+    The number of keys stored in each database.
+    Expiration settings for keys.
+  In this case, the scan shows one database (index 0).
+
+7. Select the Redis Database
+  Since only one database exists, select it using:
+    select 0
+  This ensures we are working in the correct database.
+
+8. List Available Keys
+  To see all stored keys in the database, use:
+    keys *
+  This command retrieves all keys stored in the Redis database. Keys can contain valuable data such as credentials or configurations.
+
+9. Download or Access Keys
+  Once the keys are listed, retrieve their values using:
+    get <key_name>
+    <img width="805" alt="HTB_redis2" src="https://github.com/user-attachments/assets/333bdf92-386b-4b1b-97d7-824b312d9640" />
+  Replace <key_name> with the actual key you want to view.
 
   
