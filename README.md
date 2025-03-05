@@ -1,12 +1,12 @@
 # Cyber-Wall
 
-VIRTUAL MACHINE & TOOL SETUP<p>
-Before starting, make sure you have:<p><p>
+VIRTUAL MACHINE & TOOL SETUP\
+Before starting, make sure you have:\\
 
-A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<p>
-Kali Linux (either the ISO or pre-installed version).<p>
-A local test environment with your target system (e.g., Metasploitable).<p>
-<p>
+A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.\
+Kali Linux (either the ISO or pre-installed version).\
+A local test environment with your target system (e.g., Metasploitable).\
+\
 How to Set Up UTM (for Mac)<p>
   Go to the UTM website: https://mac.getutm.app/<p>
   Download UTM and follow the installation instructions.<p>
