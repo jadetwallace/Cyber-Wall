@@ -1,25 +1,25 @@
 # Cyber-Wall
 
-**VIRTUAL MACHINE & TOOL SETUP**
+##**VIRTUAL MACHINE & TOOL SETUP**
 Before starting, make sure you have:
 <br> <br>
 A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.<br>
 Kali Linux (either the ISO or pre-installed version).<br>
 A local test environment with your target system (e.g., Metasploitable).<br>
 <br><br>
-How to Set Up UTM (for Mac)<br>
+###How to Set Up UTM (for Mac)<br>
   Go to the UTM website: https://mac.getutm.app/<br>
   Download UTM and follow the installation instructions.<br>
 <br><br>
-How to Set Up Kali Linux in UTM<br>
+###How to Set Up Kali Linux in UTM<br>
   1. Download Kali Linux from https://www.kali.org/:<br>
-    Click "Download".<br>
-    Under "Installer images", select and download the 64-bit version.<br>
+    ..Click "Download".<br>
+    ..Under "Installer images", select and download the 64-bit version.<br>
 <br>
   2. Open UTM and click Create new virtual machine.<br>
-    Choose Virtualize.<br>
-    Select Linux (OS).<br>
-    Browse and select the Kali Linux ISO file, then click Continue.<br>
+    ..Choose Virtualize.<br>
+    ..Select Linux (OS).<br>
+    ..Browse and select the Kali Linux ISO file, then click Continue.<br>
  <br>
   3. Choose your hardware and storage preferences.<br>
     Title your Kali machine.<br>
@@ -34,7 +34,7 @@ How to Set Up Kali Linux in UTM<br>
   <br>
   6. Start the Kali machine, and you’re ready to go!<br>
 <br>
-How to Set Up Metasploitable 2<br>
+###How to Set Up Metasploitable 2<br>
   1. Download Metasploitable 2 from this link and expand the zip file.<br>
 <br>
   2. Convert the .vmdk file to .qcow2 format:<br>
@@ -69,7 +69,7 @@ How to Set Up Metasploitable 2<br>
   Once the machine is running, you’re all set to start using it!<br>
 <br><br> 
 
-**MODULE 1**<br>
+##**MODULE 1**<br>
 <br>
 Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories<br>
 A. Identify IP Addresses on Your Network<br>
@@ -159,7 +159,7 @@ If you can’t connect, check the following:<br>
   Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.<br>
 <br><br>
 
-**MODULE 2: PORT SCANNING WITH NMAP**<br>
+##**MODULE 2: PORT SCANNING WITH NMAP**<br>
 <br>
 Port scanning is an essential part of cybersecurity. It helps you discover open ports, running services, and potential vulnerabilities on a target machine. In this guide, you’ll learn how to use Nmap, a powerful network scanning tool, to identify active ports and analyze their services.<br>
 <br>
@@ -221,7 +221,7 @@ Save the results to a file for documentation.<br>
 Close unnecessary open ports to reduce attack risks.<br>
 
 <br><br>
-**MODULE 3: LEARN HOW TO CONNECT TO A MONGODB SERVER**<br>
+##**MODULE 3: LEARN HOW TO CONNECT TO A MONGODB SERVER**<br>
 <br>
 1. Install MongoDB on Windows<br>
 Start your Windows VM and open a browser.<br>
@@ -285,7 +285,7 @@ When you're done, exit the shell by typing:<br>
   exit<br>
 <br>
 
-**MODULE 4: Practical Application – Hack the Box(HTB)** <br>
+##**MODULE 4: Practical Application – Hack the Box(HTB)** <br>
 How to Set Up the Environment<br>
 <br>
 1. Open the machine dropdown menu:<br>
