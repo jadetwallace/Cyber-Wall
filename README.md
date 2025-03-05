@@ -618,8 +618,10 @@ Which command is used to obtain all the keys in a database?<br>
   keys *<br>
 Submit root flag<br>
   03e1d2b376c37ab3f5319922053953eb<br>
-<br><br>
-[TOP](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#table-of-contents)
+<br>
+
+[Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
+
 
 
 
