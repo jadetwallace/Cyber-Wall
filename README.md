@@ -1,7 +1,7 @@
 # Cyber-Wall
 
 VIRTUAL MACHINE & TOOL SETUP\
-Before starting, make sure you have:\\
+Before starting, make sure you have:\
 
 A virtualized environment (like VirtualBox, UTM or VMware). I used UTM because I’m on a Mac.\
 Kali Linux (either the ISO or pre-installed version).\
