@@ -285,19 +285,79 @@ When you're done, exit the shell by typing:<br>
   exit<br>
 <br>
 
-MODULE 4: Practical Application – Hack the Box (HTB)
-**Set up**
-Open the machine dropdown menu and select "Connect using Pwnbox"
-Choose a nearby server for lower latency and click "START PWNBOX"
-Once the virtual machine is online, click "OPEN DESKTOP"
-In the dropdown menu, click "SPAWN MACHINE" for all the machines (Meow in this case) and note its IP address.
-Click the green console icon at the top middle of the screen to open a terminal.
-You can test the connection by running:
-  ping <target-IP>
-If you receive responses, you're all set to start penetration testing.
+**MODULE 4: Practical Application – Hack the Box (HTB)**
+How to Set Up the Environment
 
-  
-          
+1. Open the machine dropdown menu:
+    In the menu, select "Connect using Pwnbox". This will open a new tab for you to choose a server.
+   
+3. Choose a nearby server:
+    To reduce lag, pick a server that is geographically closer to you. This will ensure faster connections.
+   
+5. Click “START PWNBOX”:
+    Once you’ve selected the server, click the "START PWNBOX" button to start the virtual machine.
+
+4. Wait for the virtual machine to be online:
+    After a few moments, your virtual machine should be up and running. When it's ready, click "OPEN DESKTOP" to open a new tab where you can interact with the virtual       machine.
+
+5. Spawn the target machine:
+    In the dropdown menu, find and click "SPAWN MACHINE" for the specific machine you want to use (e.g., "Meow").
+    Take note of the machine's IP address — you'll need this to interact with it.
+
+6. Open a terminal:
+    Click on the green console icon (it’s at the top middle of the screen) to open a terminal window.
+
+7. Test the connection:
+    In the terminal, type the following command to test the connection to the target machine:
+      ping <target-IP>
+      Replace <target-IP> with the actual IP address of the machine.
+   
+8. Verify the connection:
+    If you receive responses from the target machine (like "Reply from..."), it means you're connected and ready to start penetration testing.
+
+The initial assessment (Nmap scan, services found).
+Steps taken to exploit vulnerabilities and gain access.
+Final shell access and the flag(s) captured.
+
+
+Hack the Box: Meow
+
+1. Ping the machine to check connectivity:
+  Open a terminal and type the following command:
+
+    ping 10.129.215.115
+  This checks if the machine is reachable and ensures your network connection is active. If you get responses like "Reply from 10.129.215.115", the machine is online and   ready to interact with.
+
+2. Scan for open ports using Nmap:
+  Next, perform a port scan to see which services are running on the target machine by typing:
+
+    sudo nmap -sV 10.129.215.115
+    This command scans the machine for open ports and tries to identify the services running on those ports. Here’s what you might see:
+  <img width="958" alt="HTB_telnet1" src="https://github.com/user-attachments/assets/f7aeaa39-b284-4295-8e86-95ed511f75a3" />
+  In this case, port 23 (Telnet) is open, meaning we can try to access the machine through Telnet.
+
+3. Access the machine using Telnet:
+  To connect to the machine via Telnet, use the following command:
+
+    telnet 10.129.215.115
+   <img width="809" alt="HTB_telnet2" src="https://github.com/user-attachments/assets/b6b3b92a-0d52-45b7-a873-3714e4454ad8" />
+  You will be prompted to log in. Try common usernames like administrator, admin, and root. In this example, we try the following:
+  Once we try root, we gain access to the machine.
+
+4. Explore the files on the machine:
+  Now that you have access as root, you can list the files on the system. To do this, type:
+    ls
+  This will show the files and directories in the current location. You should see a file, such as a flag text file.
+
+5. View the flag:
+  To read the contents of the flag file, use the cat command:
+    cat flag.txt
+   
+In this example, the flag text file content is:
+    b40abdfe23665f766f9c61ecba8a4c19
+<img width="806" alt="HTB_telnet3" src="https://github.com/user-attachments/assets/a66a49de-420d-46cd-9403-5b4991f9fc48" />
+This is the flag we were looking for!
+
           
 
   
