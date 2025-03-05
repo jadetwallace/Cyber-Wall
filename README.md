@@ -13,13 +13,13 @@ A local test environment with your target system (e.g., Metasploitable).<br>
 <br><br>
 ###How to Set Up Kali Linux in UTM<br>
   1. Download Kali Linux from https://www.kali.org/:<br>
-    ..Click "Download".<br>
-    ..Under "Installer images", select and download the 64-bit version.<br>
+    ..*Click "Download".<br>
+    Under "Installer images", select and download the 64-bit version.<br>
 <br>
   2. Open UTM and click Create new virtual machine.<br>
-    ..Choose Virtualize.<br>
-    ..Select Linux (OS).<br>
-    ..Browse and select the Kali Linux ISO file, then click Continue.<br>
+    ..*Choose Virtualize.<br>
+     Select Linux (OS).<br>
+     Browse and select the Kali Linux ISO file, then click Continue.<br>
  <br>
   3. Choose your hardware and storage preferences.<br>
     Title your Kali machine.<br>
