@@ -170,9 +170,9 @@ If you can’t connect, check the following:<br>
   Ensure RDP is enabled on the Windows machine.<br>
   Make sure the firewall (such as Windows Defender) is disabled or configured to allow RDP.<br>
 <br>
-[Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
 
-<br>
+[Top of Page](https://github.com/jadetwallace/Cyber-Wall/blob/main/README.md#cyber-wall)
+<br><br>
 
 ## **MODULE 2: Port Scanning With Nmap**<br>
 <br>
