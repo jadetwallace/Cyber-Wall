@@ -16,62 +16,62 @@ How to Set Up Kali Linux in UTM<br>
     Click "Download".<br>
     Under "Installer images", select and download the 64-bit version.<br>
 <br>
-  2. Open UTM and click Create new virtual machine.<p>
-    Choose Virtualize.<p>
-    Select Linux (OS).<p>
-    Browse and select the Kali Linux ISO file, then click Continue.<p>
-  <p>
-  3. Choose your hardware and storage preferences.<p>
-    Title your Kali machine.<p>
-  <p>
-  4. Start the Kali machine:<p>
-    Select Graphical install and follow the installation prompts.<p>
-    The installation process may take a few minutes.<p>
-    After it finishes, shut down Kali.<p>
-  <p>
-  5. Right-click the Kali machine and click Edit.<p>
-    Scroll to find the IDE Drive associated with the ISO and delete it.<p>
-  <p>
-  6. Start the Kali machine, and you’re ready to go!<p>
-<p>
-How to Set Up Metasploitable 2<p>
-  1. Download Metasploitable 2 from this link and expand the zip file.<p>
-<p>
-  2. Convert the .vmdk file to .qcow2 format:<p>
-    Open Terminal and install Qemu:<p>
-      brew install qemu<p>
-    Navigate to the folder where you downloaded Metasploitable 2:<p>
-      cd Downloads<p>
-      cd Metasploitable2-Linux<p>
-    Convert the file using this command:<p>
-      qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2<p>
- <p>    
-  3. Open UTM and click Create new virtual machine.<p>
-    Select Emulate and choose Other.<p>
-    Choose None for Boot Device.<p>
-    Set memory to 512 MB and storage to 10 GB.<p>
-    Continue until you reach the Title page, and give your Metasploitable machine a name.<p>
-<p>
-  4. Right-click the Metasploitable machine and click Edit.<p>
-    Select QEMU on the left.<p>
-    Deselect UEFI Boot.<p>
-    Scroll to the IDE Drive and delete it.<p>
-<p>
-  5. Click New to create a new drive.<p>
-    Choose Import and navigate to the qcow2 file you created earlier.<p>
+  2. Open UTM and click Create new virtual machine.<br>
+    Choose Virtualize.<br>
+    Select Linux (OS).<br>
+    Browse and select the Kali Linux ISO file, then click Continue.<br>
+ <br>
+  3. Choose your hardware and storage preferences.<br>
+    Title your Kali machine.<br>
+ <br>
+  4. Start the Kali machine:<br>
+    Select Graphical install and follow the installation prompts.<br>
+    The installation process may take a few minutes.<br>
+    After it finishes, shut down Kali.<br>
+ <br>
+  5. Right-click the Kali machine and click Edit.<br>
+    Scroll to find the IDE Drive associated with the ISO and delete it.<br>
+  <br>
+  6. Start the Kali machine, and you’re ready to go!<br>
+<br>
+How to Set Up Metasploitable 2<br>
+  1. Download Metasploitable 2 from this link and expand the zip file.<br>
+<br>
+  2. Convert the .vmdk file to .qcow2 format:<br>
+    Open Terminal and install Qemu:<br>
+      brew install qemu<br>
+    Navigate to the folder where you downloaded Metasploitable 2:<br>
+      cd Downloads<br>
+      cd Metasploitable2-Linux<br>
+    Convert the file using this command:<br>
+      qemu-img convert -p -O qcow2 'Metasploitable.vmdk' Metasploitable.qcow2<br>
+ <br>   
+  3. Open UTM and click Create new virtual machine.<br>
+    Select Emulate and choose Other.<br>
+    Choose None for Boot Device.<br>
+    Set memory to 512 MB and storage to 10 GB.<br>
+    Continue until you reach the Title page, and give your Metasploitable machine a name.<br>
+<br>
+  4. Right-click the Metasploitable machine and click Edit.<br>
+    Select QEMU on the left.<br>
+    Deselect UEFI Boot.<br>
+    Scroll to the IDE Drive and delete it.<br>
+<br>
+  5. Click New to create a new drive.<br>
+    Choose Import and navigate to the qcow2 file you created earlier.<br>
     Select it and finish the setup.<p>
-<p>
-  6. Start the Metasploitable machine and let it boot up!<p>
-<p>
-  Login Credentials for Metasploitable<p>
-    Username: msfadmin<p>
-    Password: msfadmin<p>
-  Once the machine is running, you’re all set to start using it!<p>
-<p><p>  
+<br>
+  6. Start the Metasploitable machine and let it boot up!<br>
+<br>
+  Login Credentials for Metasploitable<br>
+    Username: msfadmin<br>
+    Password: msfadmin<br>
+  Once the machine is running, you’re all set to start using it!<br>
+<br><br> 
 
-MODULE 1<p>
-**Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**<p>
-A. Identify IP Addresses on Your Network<p>
+MODULE 1<br>
+**Step 1: FTP (File Transfer Protocol) - Connect Anonymously and List Directories**<br>
+A. Identify IP Addresses on Your Network<br>
 To begin, use the command 'ifconfig' to check your machine’s network configuration. This will show you the IP addresses of the devices on your network.<p>
 <p>
 For example, on my network:<p>
